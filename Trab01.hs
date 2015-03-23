@@ -24,9 +24,6 @@ hasEqHeads x y
 	|(head x)==(head y)	= True
 	|otherwise 		= False
 
-
-
-
 --Adiciona a constante 10 a cada elemento da lista, gerando uma nova
 
 add10 :: [Int] -> [Int]
@@ -39,18 +36,15 @@ addComma :: [String] -> [String]
 addComma [] = []
 addComma x = ((head x)++",") : addComma (tail x)
 
-
 --Refazer anteriores usando map 
 
 add10m :: [Int] -> [Int]
 add10m [] = []
 add10m x= map (+10) x
 
-
 addCommam :: [String] -> [String]
 addCommam [] = []
 addCommam x = map (++",") x
-
 
 --Recebe lista de strings e formata como lista HTML
 
@@ -66,8 +60,7 @@ charFound c str
 	|str == []		= False
 	|(head str) /= c 	= charFound c (tail str)
 	|otherwise 		= False
-	
- 
+
 --escrever função anterior sem recursão 
 
 charFounds :: Char -> String -> Bool
@@ -79,7 +72,6 @@ charFounds c str
 
 parapar :: [Int] -> [Int] -> [Int]
 parapar x y = zipWith ( - ) x y 
-
 
 --calcular 2*n+1 para cada número n contido na lista
 
@@ -95,7 +87,6 @@ calc2 x y = zipWith (\x y -> 4*x+2*y+1) x y
 
 func :: [String] -> [String]
 func x = map (take 10) (map (++ repeat '.') x)
-
 
 --calcular o ano de nascimento correspondente (aproximado, considerando o ano atual)
 
