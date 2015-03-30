@@ -1,14 +1,11 @@
 --gere uma lista com as potências de 2
-
 geraPotencias :: Int -> [Int]
 geraPotencias n = [ 2^x | x<-[n,7..0]]
 
 --adicionar um sufixo às strings contidas numa lista
-
 addSuffix :: String -> [String] -> [String]
 addSuffix suf pref = [ x++suf | x<-pref ]
 
 --calcule ano de nacimento maiores de 20 anos
-
 anosDeNascimento :: [Int] -> [Int]
 anosDeNascimento lis = [2015-x | x<-lis, x>=20 ]
