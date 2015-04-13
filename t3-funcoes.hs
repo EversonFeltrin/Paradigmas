@@ -1,3 +1,5 @@
+import Data.Char
+
 --1.dado o nome completo de uma pessoa, obtenha seu primeiro nome
 
 firstName :: String -> String
@@ -24,7 +26,7 @@ lastName str
 
 userName :: String -> String
 userName [] = [] 
-userName str = toLower (head str) : toLower (lastName(str))
+userName str = toLower (head str) : map  (toLower) (lastName(str))
 
 
 --5.substitua vogais em uma string
@@ -47,7 +49,7 @@ isElem :: Int -> [Int] -> Bool
 isElem _ [] = False
 isElem x lis = any ( == x) lis 
 
---função recursiva que retorne o número de vogais em uma string
+--7.função recursiva que retorne o número de vogais em uma string
 
 numVogais :: String -> Int
 numVogais [] = 0
@@ -61,7 +63,7 @@ numVogais str =
 		|otherwise = 0
 	in (compara (head str)) + (numVogais (tail str))	
 	
---função não-recursiva que retorne o número de consoantes em uma string.
+--8.função não-recursiva que retorne o número de consoantes em uma string.
 
 numCons :: String -> Int
 numCons [] = 0 
@@ -76,7 +78,7 @@ numCons str =
 		|otherwise 	      = 1
 	in sum (map (compara) str)
 
--- função que verifique se uma dada string só contém dígitos (0 a 9)
+--9.função que verifique se uma dada string só contém dígitos (0 a 9)
 
 isInt :: String -> Bool
 isInt [] = False
@@ -88,7 +90,7 @@ isInt str =
 		|otherwise 			      = False
 	in all ( ==True)(map (testa) str)
 
---converta uma string em um número inteiro
+--10.converta uma string em um número inteiro
 
 strToInt :: String -> Int
 strToInt [] = 0 
