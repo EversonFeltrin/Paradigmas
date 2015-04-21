@@ -80,24 +80,29 @@ relac(adriano, maria).
 relac(adriano, caren).
 relac(caren, adriano).
 
+
+% Vitima
 vitima(anita).
 
+% verifica acessos especificos
 rouba_arma(X):- quarta(X,sm); quinta(X,poa); quarta(X,apt ); quinta(X,apt).
 rouba_chave(X):- segunda(X,sm); terca(X,poa).
 presente_local(X):- quinta(X,apt); sexta(X,apt).
 
+% verifica relacionamentos especificos
 relacionamento(X,Y):- relac(X,Y).
 relacionamento(X,Y) :- relac(Y,X).
 ciumes(X,Y):- relacionamento(Z,X), relacionamento(Y,Z).
 
 
-
+% motivações
 dinheiro(X) :- pobre(X).
 insanidade(X) :- insano(X).
 ciumes_vitima(X) :- ciumes(X,Y) , vitima(Y).
 
-
+% cruza dados do crime achando motivo e verificando acesso
 acesso(X) :- rouba_arma(X) , rouba_chave(X) , presente_local(X).
 motivo(X) :- ciumes_vitima(X) ; insanidade(X); dinheiro(X).
 
+% verifica assassino
 assassino(X) :- motivo(X), acesso(X).
